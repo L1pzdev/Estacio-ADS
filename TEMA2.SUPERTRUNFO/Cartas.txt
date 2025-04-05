@@ -1,0 +1,22 @@
+Cartas com os novos atributos:
+
+Carta 1: Cidade A
+
+Nome da Cidade: Cidade A
+População: 150.000 habitantes
+Área da Cidade: 500 km²
+PIB da Cidade: R$ 8 bilhões
+Número de Pontos Turísticos: 15
+Densidade Populacional: 300 habitantes/km²
+PIB per capita: R$ 53.333,33
+Superpoder: 8.053.348,33
+Carta 2: Cidade B
+
+Nome da Cidade: Cidade B
+População: 80.000 habitantes
+Área da Cidade: 1.200 km²
+PIB da Cidade: R$ 12 bilhões
+Número de Pontos Turísticos: 8
+Densidade Populacional: 66,67 habitantes/km²
+PIB per capita: R$ 150.000,00
+Superpoder: 12.150.008,02

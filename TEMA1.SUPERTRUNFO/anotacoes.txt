@@ -1,0 +1,25 @@
+pop cidade 1 = 10
+area = 1000
+
+densidade p = 0,01
+densidade invertida = 1/0.01 = 100
+
+pop cidade 2 = 20
+area = 1000
+densidade p = 0,02
+
+Superpoder 
+pop = 10
+area = 1000
+pib = 10000
+pt = 1
+dp = 100
+pcp = 1000
+
+Superpoder 2
+pop = 20
+area = 1000
+pib = 40000
+pt = 3
+dp = 50
+pcp = 2000
