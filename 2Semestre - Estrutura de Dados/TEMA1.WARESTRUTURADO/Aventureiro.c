@@ -22,13 +22,16 @@ void limparBuffer(){
     while ((c = getchar()) != '\n' && c != EOF);
 }
 
+//Função Para Ataques
 void atacar(struct Territorio *atacante, struct Territorio *defensor){
     printf("\n--- Inicio do Ataque ---\n");
     printf("%s (Atacante) vs %s (Defensor)\n", atacante->nome, defensor->nome);
 
+    //Rola os Dados
     int dadoAtacante = (rand() % 6) + 1;
     int dadoDefensor = (rand() % 6) + 1;
 
+    //Mostra e faz a verificação de quem ganhou o duelo
     printf("Dados: Atacante [%d] x Defensor [%d]\n", dadoAtacante,dadoDefensor);
     if (dadoAtacante > dadoDefensor){
         printf("Vitoria do Atacante!\n");
@@ -69,7 +72,7 @@ int main(){
         printf("=================================\n");
         printf("         WAR ESTRUTURADO         \n");
         printf("=================================\n");
-        printf("1 - Cadastrar Territórios\n");
+        printf("1 - Cadastrar Territórios (Limite %d)\n", MAX_PAISES);
         printf("2 - Mostrar todos os territórios\n");
         printf("3 - Realizar Ataques\n");
         printf("9 - Sair\n");
@@ -80,7 +83,7 @@ int main(){
 
         switch (opcaoMenu)
         {
-        case 1: //Cadastro de Livro
+        case 1: //Cadastro de Países
             printf("--- Cadastro de Novo País ---\n\n");
             if (totalPaises < MAX_PAISES){
                 printf("Digite o nome do País %d: ", totalPaises + 1 );
@@ -137,7 +140,7 @@ int main(){
             getchar();
             break;
 
-        case 9:
+        case 9: //Sair
             printf("Fechando o jogo...\n");
             break;
 
@@ -147,6 +150,7 @@ int main(){
         }
     } while (opcaoMenu != 9); //Sai do Programa
 
+    //Libera Memória
     free(paises);
     return 0;
 }
