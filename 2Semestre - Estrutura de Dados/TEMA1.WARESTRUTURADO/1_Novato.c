@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Constantes Globais
+// Definiçoes e Constantes
 #define MAX_PAIS 5
 #define MAX_NOME 30
 #define MAX_COR 10

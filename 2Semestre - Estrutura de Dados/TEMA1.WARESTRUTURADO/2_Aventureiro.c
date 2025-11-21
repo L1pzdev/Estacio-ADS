@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-// Constantes Globais
+// Definicoes e Constantes
 #define MAX_PAISES 5
 #define MAX_NOME 50
 #define MAX_COR 15
@@ -51,9 +51,9 @@ void atacar(struct Territorio *atacante, struct Territorio *defensor){
 
 //Função Principal
 int main(){
-    //Inicializa a Biblioteca Rand
+    //Define a semente para geração de números aleatórios
     srand(time(NULL));
-    //Definição de Ponteiro
+    //Alocação Dinâmica do vetor de territórios
     struct Territorio *paises;
     paises = (struct Territorio *) calloc(MAX_PAISES, sizeof(struct Territorio));
 
@@ -150,7 +150,7 @@ int main(){
         }
     } while (opcaoMenu != 9); //Sai do Programa
 
-    //Libera Memória
+    //Libera a memória alocada dinamicamente para evitar vazamentos
     free(paises);
     return 0;
 }

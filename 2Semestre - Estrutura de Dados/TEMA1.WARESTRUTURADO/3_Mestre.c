@@ -41,7 +41,7 @@ void limparBuffer(){
     while ((c = getchar()) != '\n' && c != EOF);
 }
 
-//Liberar a Memória Utilizada
+//Libera toda memória alocada dinamicamente para evitar vazamentos
 void liberarMemoria(struct Territorio *paises, struct Jogador *jogadores){
     if (paises != NULL){
         free(paises);
@@ -55,7 +55,7 @@ void liberarMemoria(struct Territorio *paises, struct Jogador *jogadores){
     printf("\nMemória Liberada com Sucesso");
 }
 
-//Atribui a missão para cada jogador Dinamicamente
+//Aloca memória e sorteia uma missão única para cada jogador
 void atribuirMissao(struct Jogador *jogador){
     printf("\n---- Sorteando Missões! ----\n");
 
@@ -107,7 +107,7 @@ int verificarMissao(struct Jogador *jogadores, struct Territorio *paises, int to
         else if (strcmp(missao, "Ter 15 Tropas ou mais") == 0){ //Missao 4: Ter 15 Tropas ou mais
             if (contagemTropas[i] >= 15) terminarJogo =1;
         }
-        else if (strcmp(missao, "Ter mais territórios que a cor Azul") == 0){
+        else if (strcmp(missao, "Ter mais territórios que a cor Azul") == 0){//Missao 5: Ter mais territórios que o jogador Azul.
             if(contagemTerritorios[i] > contagemTerritorios[0] && i != 0) terminarJogo = 1;
         }
 
@@ -136,10 +136,10 @@ void atacar(struct Territorio *atacante, struct Territorio *defensor){
     printf("Dados: Atacante [%d] x Defensor [%d]\n", dadoAtacante,dadoDefensor);
     if (dadoAtacante > dadoDefensor){
         printf("Vitoria do Atacante!\n");
-        atacante->tropas += 2;
+        atacante->tropas += 2; //Ganha 2 Tropas, para atingir os 15 soldados
         strcpy(defensor->cor, atacante->cor);
         int tropasMovidas = atacante->tropas /2;
-        if (tropasMovidas < 1) tropasMovidas = 1;
+        if (tropasMovidas < 1) tropasMovidas = 1;//Garante que pelo menos 1 tropa vai ser movida
         defensor->tropas = tropasMovidas;
         atacante->tropas = atacante->tropas - tropasMovidas;
 
@@ -230,10 +230,10 @@ int iniciarJogo(int totalPaises, struct Territorio *paises, struct Jogador *joga
 
 //Função Principal
 int main(){
-    //Inicializa a Biblioteca Rand
+    //Define a semente para geração de números aleatórios
     srand(time(NULL));
 
-    //Definição de Ponteiros e Alocação de Memória
+    //Alocação Dinâmica do vetor de territórios
     struct Territorio *paises;
     paises = (struct Territorio *) calloc(MAX_PAISES, sizeof(struct Territorio));
 
@@ -331,7 +331,6 @@ int main(){
 
         case 0: //Sair
             printf("Fechando o jogo...\n");
-            liberarMemoria(paises,jogadores); //Chamar a Função
             break;
 
         default: //Sistema para Escolha Erradas
@@ -340,6 +339,8 @@ int main(){
         }
     } while (opcaoMenu != 0); //Sai do Programa
 
-    return 0;
+    //Chama a Função para liberar Memória
     liberarMemoria(paises,jogadores);
+    return 0;
+
 }
