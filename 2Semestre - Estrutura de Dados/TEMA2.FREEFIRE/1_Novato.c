@@ -64,7 +64,7 @@ void listarItens(Mochila *bag){
         printf("\n[ERRO] Mochila sem itens.\n");
     } else {
         printf("              MOCHILA\n");
-        printf("%-3s| %-30s | %-20s | x%d\n","ID","NOME","TIPO","QTD");
+        printf("%-3s| %-30s | %-20s | x%s\n","ID","NOME","TIPO","QTD");
         printf("--------------------------------------------------------------------\n");
         for(int i = 0; i < bag->total; i++){
                 printf("%-3d| %-30s | %-20s | x%d\n", i + 1, bag->itens[i].nome, bag->itens[i].tipo, bag->itens[i].quantidade);    
